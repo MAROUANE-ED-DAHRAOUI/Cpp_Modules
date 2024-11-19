@@ -30,8 +30,8 @@ int main()
             return (0);
         else
         {
-            std::cout << "Invalid command !! \n\tYou only have three options : " << std::endl;
-            std::cout << "\t\t(1 : ADD\t2 : SEARCH\t3 : EXIT)\n";  
+            std::cout << RED << "Invalid command !! \n" << RESET << YELLOW << "\tYou only have three options : " << RESET << std::endl;
+            std::cout << "\t\t(" << GREEN << "1 : ADD\t2 : SEARCH\t3 : EXIT" << RESET << ")\n";  
         }
     }
     return 0;

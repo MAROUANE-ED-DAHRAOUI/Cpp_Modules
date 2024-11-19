@@ -62,9 +62,9 @@ void printContactRow(int idx, const Contact& contact)
 {
     std::cout << "|" << std::setw(10) << idx << "|";
     if(contact.getFirstName().size() >= 10)
-            std::cout << std::setw(10) <<  contact.getFirstName().erase(9) + "." << "|";
+            std::cout << std::setw(10) <<  contact.getFirstName().erase(9) + "." << " |";
     else
-            std::cout << std::setw(10) << contact.getFirstName() << "|";
+            std::cout << std::setw(10) << contact.getFirstName() << " |";
 
     if(contact.getLastName().size() >= 10)
             std::cout << std::setw(10) <<  contact.getLastName().erase(9) + "." << "|";
@@ -81,7 +81,7 @@ void PhoneBook::getAllContactDetails()
 {
     std::string _index;
 
-    _index = read_line("Enter index to view details: ");
+    _index = read_line("\nEnter index to view details: ");
     if (_index.empty()) {
         std::cout << RED << "Invalid input.\n" << RESET;
         return;
@@ -99,11 +99,11 @@ void PhoneBook::getAllContactDetails()
     }
 
     const Contact& contact = Contacts[idx];
-    std::cout << YELLOW <<"First Name: " << GREEN << contact.getFirstName() << "\n" << RESET;
-    std::cout << YELLOW << "Last Name: " << GREEN << contact.getLastName() << "\n" << RESET;
-    std::cout << YELLOW << "Nick Name: " << GREEN << contact.getNickName() << "\n" << RESET;
-    std::cout << YELLOW << "Phone Number: " << GREEN << contact.getPhoneNumber() << "\n" << RESET;
-    std::cout << YELLOW << "Darkest Secret: " << GREEN << contact.getDarkestSecret() << "\n" << RESET;
+    std::cout << YELLOW <<"\nFirst Name    : " << GREEN << contact.getFirstName() << "\n" << RESET;
+    std::cout << YELLOW << "Last Name      : " << GREEN << contact.getLastName() << "\n" << RESET;
+    std::cout << YELLOW << "Nick Name      : " << GREEN << contact.getNickName() << "\n" << RESET;
+    std::cout << YELLOW << "Phone Number   : " << GREEN << contact.getPhoneNumber() << "\n" << RESET;
+    std::cout << YELLOW << "Darkest Secret : " << GREEN << contact.getDarkestSecret() << "\n" << RESET;
 }
 
 void printHeader() 
@@ -126,10 +126,10 @@ void PhoneBook::searchContacts()
     for (int i = 0; i < size; i++) 
     {
         printContactRow(i, Contacts[i]);
-        if(i == size)
-            std::cout << BOLD << "\\-------------------------------------------/\n" << RESET;
+        if(i == size - 1)
+            std::cout << BOLD << "\n\\--------------------------------------------/\n" << RESET;
         else
-            std::cout << BOLD <<"\n|----------|----------|----------|----------|" << std::endl << RESET;
+            std::cout << BOLD <<"\n|----------|-----------|----------|----------|" << std::endl << RESET;
     }
 
     getAllContactDetails();
