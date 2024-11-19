@@ -1,49 +1,52 @@
 #include "Contact.hpp"
-#include "PhoneBook.hpp"
-#include <string>
-#include <iostream>
 
-std::string Contact::getFirstName(void)
+std::string Contact::getFirstName(void) const
 {
-    return (firstName);
+    return firstName;
 }
 
-std::string Contact::getLastName(void)
+std::string Contact::getLastName(void) const
 {
-    return (lastName);
+    return lastName;
 }
-            
-std::string Contact::getNickName(void)
+
+std::string Contact::getNickName(void) const
 {
-    return (nickName);
+    return nickName;
 }
- 
-std::string Contact::getPhoneNumber(void)
+
+std::string Contact::getPhoneNumber(void) const
 {
-    return (phoneNumber);
+    return phoneNumber;
 }
-            
-std::string Contact::getDarkestSecret(void)
+
+std::string Contact::getDarkestSecret(void) const
 {
-    return (darkestSecret);
+    return darkestSecret;
 }
-            
-void        Contact::setFirstName(std::string _firstName)
+
+// Setter methods
+void Contact::setFirstName(std::string _firstName)
 {
     firstName = _firstName;
 }
-            
-void        Contact::setLastName(std::string _lastName)
+
+void Contact::setLastName(std::string _lastName)
 {
     lastName = _lastName;
 }
-            
-void        Contact::setNickName(std::string _nickName)
+
+void Contact::setNickName(std::string _nickName)
 {
     nickName = _nickName;
 }
-            
-void        Contact::setPhoneNumber(std::string darkestSecret)
+
+void Contact::setPhoneNumber(std::string _phoneNumber)
+{
+    phoneNumber = _phoneNumber;
+}
+
+void Contact::setDarkestSecret(std::string _darkestSecret)
 {
     darkestSecret = _darkestSecret;
 }

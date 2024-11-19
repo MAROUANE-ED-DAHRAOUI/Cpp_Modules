@@ -15,26 +15,24 @@ int main()
 {
     PhoneBook PhoneBooks;
     std::string   input;
-    int           index;
 
-    index = 0;
     while(1)
     {
-        input = read_line("Enter a cammand : ");
-        if(!input)
-            break ;
+        input = read_line("\nEnter a cammand : ");
         if(input == "ADD")
         {
-            if (PhoneBooks.addContact(index % 8))
+            if (PhoneBooks.addContact())
                     break ;
         }
         else if(input == "SEARCH")
-            PhoneBooks.searchContacts(index);
+            PhoneBooks.searchContacts();
         else if(input == "EXIT")
-            break ;
+            return (0);
         else
-            std::cout << "Invalid command !! \nYou only have three options : " << endl;
-            std::cout << "1 : ADD\t2 : SEARCH\t3 : EXIT\n";  
+        {
+            std::cout << "Invalid command !! \n\tYou only have three options : " << std::endl;
+            std::cout << "\t\t(1 : ADD\t2 : SEARCH\t3 : EXIT)\n";  
+        }
     }
     return 0;
 }
