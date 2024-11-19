@@ -6,7 +6,7 @@ std::string read_line(std::string str)
 {
     std::string input;
 
-    std::cout << str;
+    std::cout << MAGENTA << str << RESET;
     std::cin >> input;
     return (input);
 }

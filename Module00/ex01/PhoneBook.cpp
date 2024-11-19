@@ -15,7 +15,8 @@ PhoneBook::PhoneBook()
 bool allDigits(std::string str)
 {
     int i = 0;
-    if (str[0] == '+') i++; // Allow numbers starting with "+"
+    if (str[0] == '+') 
+            i++;
     while (i < (int)str.size()) {
         if (!std::isdigit(str[i]))
             return false;
@@ -36,11 +37,11 @@ int PhoneBook::addContact()
         inputs[i] = read_line(prompts[i]);
         if (inputs[i].empty())
         {
-            std::cout << "Field cannot be empty. Please try again.\n";
+            std::cout << RED << "Field cannot be empty. Please try again.\n" << RESET;
             continue;
         }
         if (i == 3 && !allDigits(inputs[i])) {
-            std::cout << "Invalid phone number! Please try again.\n";
+            std::cout << RED << "Invalid phone number! Please try again.\n" << RESET;
             continue;
         }
         i++;
@@ -82,41 +83,41 @@ void PhoneBook::getAllContactDetails()
 
     _index = read_line("Enter index to view details: ");
     if (_index.empty()) {
-        std::cout << "Invalid input.\n";
+        std::cout << RED << "Invalid input.\n" << RESET;
         return;
     }
 
     if (!allDigits(_index) || _index.length() > 1) {
-        std::cout << "Invalid index.\n";
+        std::cout << RED << "Invalid index.\n" << RESET;
         return;
     }
 
     int idx = _index[0] - '0';
     if (idx < 0 || idx >= (index < 8 ? index : 8)) {
-        std::cout << "Index out of range.\n";
+        std::cout << RED << "Index out of range.\n" << RESET;
         return;
     }
 
     const Contact& contact = Contacts[idx];
-    std::cout << "First Name: " << contact.getFirstName() << "\n";
-    std::cout << "Last Name: " << contact.getLastName() << "\n";
-    std::cout << "Nick Name: " << contact.getNickName() << "\n";
-    std::cout << "Phone Number: " << contact.getPhoneNumber() << "\n";
-    std::cout << "Darkest Secret: " << contact.getDarkestSecret() << "\n";
+    std::cout << YELLOW <<"First Name: " << GREEN << contact.getFirstName() << "\n" << RESET;
+    std::cout << YELLOW << "Last Name: " << GREEN << contact.getLastName() << "\n" << RESET;
+    std::cout << YELLOW << "Nick Name: " << GREEN << contact.getNickName() << "\n" << RESET;
+    std::cout << YELLOW << "Phone Number: " << GREEN << contact.getPhoneNumber() << "\n" << RESET;
+    std::cout << YELLOW << "Darkest Secret: " << GREEN << contact.getDarkestSecret() << "\n" << RESET;
 }
 
 void printHeader() 
 {
-    std::cout << "/-------------------------------------------\\\n";
-    std::cout << "|   Index  | FirstName | LastName | NickName |\n";
-    std::cout << "|----------|-----------|----------|----------|\n";
+    std::cout << BOLD << "/-------------------------------------------\\\n" << RESET;
+    std::cout << BOLD << "|   Index  | FirstName | LastName | NickName |\n" << RESET;
+    std::cout << BOLD << "|----------|-----------|----------|----------|\n" << RESET;
 }
 
 void PhoneBook::searchContacts() 
 {
     if (index == 0)
     {
-        std::cout << "No contacts available. Please add some contacts first.\n";
+        std::cout << MAGENTA << "No contacts available. Please add some contacts first.\n" << RESET;
         return;
     }
 
@@ -126,9 +127,9 @@ void PhoneBook::searchContacts()
     {
         printContactRow(i, Contacts[i]);
         if(i == size)
-            std::cout << "\\-------------------------------------------/\n";
+            std::cout << BOLD << "\\-------------------------------------------/\n" << RESET;
         else
-            std::cout << "\n|----------|----------|----------|----------|" << std::endl;
+            std::cout << BOLD <<"\n|----------|----------|----------|----------|" << std::endl << RESET;
     }
 
     getAllContactDetails();
