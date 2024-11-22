@@ -1,5 +1,12 @@
 #include "Account.hpp"
-#include <string>
+#include <iostream>
+#include <iomanip>
+#include <ctime>
+
+int     Account::_nbAccounts = 0;
+int     Account::_totalNbDeposits = 0;
+int     Account::_totalNbWithdrawals = 0;
+int     Account::_totalAmount = 0;
 
 static int	getNbAccounts( void )
 {
@@ -18,13 +25,15 @@ static int	getNbDeposits( void )
 
 static int	getNbWithdrawals( void )
 {
-    return (_nbWithdrawals);
+    return (_totalNbWithdrawals);
 }
 
 static void	displayAccountsInfos( void )
 {
-    std::cout << "";
-    std::cout << "";
-    std::cout << "";
-    std::cout << "";
+    std::cout << "accounts:" << _nbAccounts;
+    std::cout << ";total:" << _totalAmount;
+    std::cout << ";deposits:" << _totalNbDeposits;
+    std::cout << ";withdrawals:" << _totalNbWithdrawals << "\n";
 }
+
+
