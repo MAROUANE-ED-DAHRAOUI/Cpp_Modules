@@ -36,4 +36,37 @@ static void	displayAccountsInfos( void )
     std::cout << ";withdrawals:" << _totalNbWithdrawals << "\n";
 }
 
+Account::Account( int initial_deposit)
+{
+    _displayTimestamp();
+    _amount = initial_deposit;
+    _totalAmount += initial_deposit;
+    _accountIndex = _nbAccounts;
+    _nbAccounts++;
+    std::cout << "Index:" << _accountIndex << ";amount:" << _amount << "created\n";
+}
 
+Account::Account()
+{
+
+}
+
+void	Account::makeDeposit( int deposit )
+{
+
+}
+
+bool	Account::makeWithdrawal( int withdrawal )
+{
+
+}
+
+int		Account::checkAmount( void ) const
+{
+
+}
+
+void	Account::displayStatus( void ) const
+{
+
+}
