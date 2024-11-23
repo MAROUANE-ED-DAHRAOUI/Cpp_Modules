@@ -7,7 +7,10 @@ std::string read_line(std::string str)
     std::string input;
 
     std::cout << MAGENTA << str << RESET;
-    std::cin >> input;
+    if(!std::getline(std::cin, input))
+    {
+        return (NULL);
+    }
     return (input);
 }
 
@@ -19,6 +22,12 @@ int main()
     while(1)
     {
         input = read_line("\nEnter a cammand : ");
+        if()
+        if (std::cin.eof())
+        {
+            std::cout << "INVALD CTRL D\n";
+            break;
+        }
         if(input == "ADD")
         {
             if (PhoneBooks.addContact())

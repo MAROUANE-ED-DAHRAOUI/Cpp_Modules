@@ -35,6 +35,11 @@ int PhoneBook::addContact()
     {
         // std::cout << prompts[i];
         inputs[i] = read_line(prompts[i]);
+        if (std::cin.eof())
+        {
+            std::cout << "INVALD CTRL D\n";
+            break;
+        }
         if (inputs[i].empty())
         {
             std::cout << RED << "Field cannot be empty. Please try again.\n" << RESET;
@@ -61,18 +66,18 @@ int PhoneBook::addContact()
 void printContactRow(int idx, const Contact& contact) 
 {
     std::cout << "|" << std::setw(10) << idx << "|";
-    if(contact.getFirstName().size() >= 10)
-            std::cout << std::setw(10) <<  contact.getFirstName().erase(9) + "." << " |";
+    if(contact.getFirstName().size() > 10)
+            std::cout << std::setw(10) <<  contact.getFirstName().erase(10) + "." << "|";
     else
-            std::cout << std::setw(10) << contact.getFirstName() << " |";
+            std::cout << std::setw(10) << contact.getFirstName() << "|";
 
-    if(contact.getLastName().size() >= 10)
-            std::cout << std::setw(10) <<  contact.getLastName().erase(9) + "." << "|";
+    if(contact.getLastName().size() > 10)
+            std::cout << std::setw(10) <<  contact.getLastName().erase(10) + "." << "|";
     else
             std::cout << std::setw(10) << contact.getLastName() << "|";
     
-    if(contact.getNickName().size() >= 10)
-            std::cout << std::setw(10) <<  contact.getNickName().erase(9) + "." << "|";
+    if(contact.getNickName().size() > 10)
+            std::cout << std::setw(10) <<  contact.getNickName().erase(10) + "." << "|";
     else
             std::cout << std::setw(10) << contact.getNickName() << "|";
 }
