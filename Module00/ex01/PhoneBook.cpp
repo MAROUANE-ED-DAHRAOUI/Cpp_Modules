@@ -5,8 +5,6 @@
 #include <iostream>
 #include <iomanip>
 
-std::string read_line(std::string str);
-
 PhoneBook::PhoneBook()
 {
     index = 0;
@@ -33,8 +31,8 @@ int PhoneBook::addContact()
 
     while (i < 5) 
     {
-        // std::cout << prompts[i];
-        inputs[i] = read_line(prompts[i]);
+        std::cout << MAGENTA << prompts[i] << RESET;
+        std::getline(std::cin, inputs[i]);
         if (std::cin.eof())
         {
             std::cout << "INVALD CTRL D\n";
@@ -86,7 +84,13 @@ void PhoneBook::getAllContactDetails()
 {
     std::string _index;
 
-    _index = read_line("\nEnter index to view details: ");
+    std::cout << "\nEnter index to view details: ";
+    std::getline(std::cin, _index);
+     if (std::cin.eof())
+     {
+        std::cout << "INVALD CTRL D\n";
+        return ;
+    }
     if (_index.empty()) {
         std::cout << RED << "Invalid input.\n" << RESET;
         return;

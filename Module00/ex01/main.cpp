@@ -1,18 +1,7 @@
+
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 #include <iomanip>
-
-std::string read_line(std::string str)
-{
-    std::string input;
-
-    std::cout << MAGENTA << str << RESET;
-    if(!std::getline(std::cin, input))
-    {
-        return (NULL);
-    }
-    return (input);
-}
 
 int main()
 {
@@ -21,8 +10,9 @@ int main()
 
     while(1)
     {
-        input = read_line("\nEnter a cammand : ");
-        if()
+        std::cout << GREEN << "\nEnter a cammand : " << RESET;
+        if(!std::getline(std::cin, input))
+                break;
         if (std::cin.eof())
         {
             std::cout << "INVALD CTRL D\n";
