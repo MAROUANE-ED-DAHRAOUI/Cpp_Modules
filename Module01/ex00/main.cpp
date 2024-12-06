@@ -12,6 +12,8 @@
 
 #include "Zombie.hpp"
 
+/*Goal: Manage dynamically allocated objects and distinguish 
+        between heap and stack memory.*/
 int main()
 {
     Zombie *new_Zombie = newZombie("foo");

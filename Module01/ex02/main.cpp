@@ -30,6 +30,5 @@ int main()
     std::string *stringPTR = &ObStr;
     std::string &stringREF = ObStr;
     Print_result(ObStr, stringPTR, stringREF);
-    // No need to delete stringPTR as it points to a stack variable
     return 0;
 }

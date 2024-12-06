@@ -12,6 +12,8 @@
 
 #include "Zombie.hpp"
 
+/*Goal: Allocate and manage multiple objects in a single memory block.*/
+
 int main()
 {
     int     Nb = 10;
