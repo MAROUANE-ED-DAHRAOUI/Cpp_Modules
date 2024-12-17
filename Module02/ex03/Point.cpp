@@ -22,13 +22,9 @@ Point& Point::operator=(const Point &Ob)
     return *this;
 }
 
-Point::~Point(){
-
-}
-
-bool Point::bsp( Point const a, Point const b, Point const c, Point const point)
+Point::~Point()
 {
-    return (true);
+
 }
 
 Fixed Point::getX() const

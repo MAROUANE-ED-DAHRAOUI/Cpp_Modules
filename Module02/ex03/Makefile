@@ -1,6 +1,6 @@
 NAME = Fixed
 
-SRC = main.cpp fixed.cpp Point.cpp 
+SRC = main.cpp fixed.cpp Point.cpp  bsp.cpp
 
 OBJC = ${SRC:.cpp=.o}
 
