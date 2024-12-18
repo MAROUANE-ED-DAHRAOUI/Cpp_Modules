@@ -1,36 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: med-dahr <med-dahr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/18 11:38:27 by med-dahr          #+#    #+#             */
+/*   Updated: 2024/12/18 12:00:11 by med-dahr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fixed.hpp"
 
 Fixed::Fixed() : _FixedValue(0) 
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << GREEN << "Default constructor called" << RESET << std::endl;
 }
 
 Fixed::Fixed(const int value) 
 {
-    std::cout << "Int constructor called" << std::endl;
+    std::cout << GREEN << "Int constructor called" << RESET << std::endl;
     this->_FixedValue = value << _number;
 }
 
 Fixed::Fixed(const float value) 
 {
-    std::cout << "Float constructor called" << std::endl;
+    std::cout << GREEN << "Float constructor called" << RESET << std::endl;
     this->_FixedValue = roundf(value * (1 << _number));
 }
 
 Fixed::Fixed(const Fixed &instance) 
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << GREEN << "Copy constructor called" << RESET << std::endl;
     *this = instance;
 }
 
 Fixed::~Fixed() 
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << GREEN << "Destructor called" << RESET << std::endl;
 }
 
 Fixed& Fixed::operator=(const Fixed &rhs) 
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << YELLOW << "Copy assignment operator called" << RESET << std::endl;
     if (this != &rhs) {
         this->_FixedValue = rhs.getRawBits();
     }

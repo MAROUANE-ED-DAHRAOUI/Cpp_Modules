@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: med-dahr <med-dahr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/18 11:38:52 by med-dahr          #+#    #+#             */
+/*   Updated: 2024/12/18 11:57:32 by med-dahr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
@@ -5,6 +17,12 @@
 #include <iostream>
 #include <cmath>
 
+#define RED         "\033[31m"
+#define GREEN       "\033[32m"
+#define YELLOW      "\033[33m"
+#define BOLD        "\033[1m"
+#define MAGENTA     "\033[35m"
+#define RESET       "\033[0m"
 
 class Fixed
 {
