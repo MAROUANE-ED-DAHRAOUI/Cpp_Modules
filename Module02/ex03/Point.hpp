@@ -17,10 +17,11 @@ class Point{
             ~Point();
 
             Point& operator=(const Point &Ob);
-            bool bsp( Point const a, Point const b, Point const c, Point const point);
 
                Fixed getX() const;
                Fixed getY() const;
 };
+
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif

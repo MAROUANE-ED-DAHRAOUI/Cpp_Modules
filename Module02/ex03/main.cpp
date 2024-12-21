@@ -11,9 +11,9 @@ int main()
     Point edge(2, 0);
 
     Point p;
-    std::cout << "Inside: " << p.bsp(a, b, c, inside) << std::endl; // true
-    std::cout << "Outside: " << p.bsp(a, b, c, outside) << std::endl; // false
-    std::cout << "Edge: " << p.bsp(a, b, c, edge) << std::endl; // false
+    std::cout << "Inside: " << bsp(a, b, c, inside) << std::endl; // true
+    std::cout << "Outside: " << bsp(a, b, c, outside) << std::endl; // false
+    std::cout << "Edge: " << bsp(a, b, c, edge) << std::endl; // false
 
     return 0;
 }
