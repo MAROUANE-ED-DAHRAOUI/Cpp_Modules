@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: med-dahr <med-dahr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/18 11:40:32 by med-dahr          #+#    #+#             */
+/*   Updated: 2024/12/24 11:03:12 by med-dahr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
@@ -11,7 +23,7 @@ class Fixed
 
         private:
                 int _FixedPoint;
-                static const int _number = 8;
+                static const int _number;
 
         public:
                 Fixed();

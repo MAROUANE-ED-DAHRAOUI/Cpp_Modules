@@ -1,4 +1,18 @@
-#include "fixed.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: med-dahr <med-dahr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/18 11:40:28 by med-dahr          #+#    #+#             */
+/*   Updated: 2024/12/24 11:43:20 by med-dahr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Fixed.hpp"
+
+const int Fixed::_number = 8;
 
 Fixed::Fixed() : _FixedPoint(0) 
 {
@@ -7,7 +21,7 @@ Fixed::Fixed() : _FixedPoint(0)
 
 Fixed::Fixed(const int value) 
 {
-    this->_FixedPoint = value << _number;
+    this->_FixedPoint = value * (1 << _number);
 }
 
 Fixed::Fixed(const float value) 
@@ -27,9 +41,7 @@ Fixed::~Fixed()
 
 Fixed& Fixed::operator=(const Fixed &rhs) 
 {
-    if (this != &rhs){
-        this->_FixedPoint = rhs.getRawBits();
-    }
+    this->_FixedPoint = rhs.getRawBits();
     return *this;
 }
 
@@ -45,12 +57,12 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const 
 {
-    return static_cast<float>(this->_FixedPoint) / (1 << _number);
+    return ((float)(this->_FixedPoint) / (1 << _number));
 }
 
 int Fixed::toInt(void) const 
 {
-    return this->_FixedPoint >> _number;
+    return (this->_FixedPoint / (1 << _number));
 }
 
 std::ostream& operator<<(std::ostream &out, const Fixed &fixed) 
