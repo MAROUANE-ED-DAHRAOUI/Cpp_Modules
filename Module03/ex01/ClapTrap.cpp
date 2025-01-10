@@ -38,38 +38,39 @@ void   ClapTrap::attack(const std::string &target)
 {
     if(HitPoint > 0 && EnergyPoint > 0)
     {
-            std::cout << "ClapTrap " << Name << " Attacks " << target << " causing " << AttackDamage << " points of domage!" << std::endl;
+            std::cout << RED <<"ClapTrap " << RESET << BOLD << Name << RESET 
+                << RED << " Attacks " << RESET << BOLD << target << RESET << 
+                RED << " causing " << RESET << BOLD << AttackDamage << RESET 
+                    << RED <<" points of domage!" << RESET << std::endl;
             EnergyPoint--;
     }
     else
-        std::cout << RED << "ClapTrap can't do anything! \n" << RESET;
+        std::cout << RED << " ClapTrap can’t do anything if it has no hit pointsor energy points left! \n" << RESET;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
     if(HitPoint > 0 && EnergyPoint > 0)
     {
-        std::cout << YELLOW <<"ClapTrap " << RESET << BOLD << Name 
-        << RESET << YELLOW << " take " << RESET << BOLD << amount << RESET
-        << YELLOW << " of points" << RESET << std::endl;
+        std::cout << RED <<"ClapTrap " << RESET << BOLD << Name 
+        << RESET << RED << " take " << RESET << BOLD << amount << RESET
+        << RED << " of points" << RESET << std::endl;
         HitPoint -= amount;
         AttackDamage -= amount;
     }
     else
-        std::cout << "ClapTrap can't do anything!" << std::endl;
+        std::cout << RED << " ClapTrap can’t do anything if it has no hit pointsor energy points left! \n" << RESET;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
     if(HitPoint > 0 && EnergyPoint > 0)
     {
-        std::cout << YELLOW << "ClapTrap " <<  RESET << Name << YELLOW << " repairs itself, restoring " <<  RESET << BOLD << amount << RESET 
-            << YELLOW << " points of damage" RESET << std::endl;
+        std::cout << RED << "ClapTrap " <<  RESET << Name << RED << " repairs itself, restoring " <<  RESET << BOLD << amount << RESET 
+            << RED << " points of damage" RESET << std::endl;
         HitPoint += amount;
         AttackDamage += amount;
     }
     else
-    {
-        std::cout << RED << "ClapTrap can't do anything" << RESET << std::endl;
-    }
+        std::cout << RED << " ClapTrap can’t do anything if it has no hit pointsor energy points left! \n" << RESET;
 }
