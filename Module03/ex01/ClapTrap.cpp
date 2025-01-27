@@ -1,4 +1,4 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 // default constructor call
 ClapTrap::ClapTrap() : Name("ClapTrap"), HitPoint(10), EnergyPoint(10), AttackDamage(0)
