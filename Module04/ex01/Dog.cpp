@@ -6,7 +6,7 @@ Dog::Dog()
     type = "Dog";
     Dog = new Brain();
     for(int i = 0; i < 100; i++)
-        Dog->Brain[i] = "Dog Idea";
+        Dog->Ideas[i] = "Dog Idea";
 }
 
 Dog::Dog(const Dog& _Copy) : Animal(_Copy)

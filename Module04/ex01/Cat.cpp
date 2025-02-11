@@ -6,7 +6,7 @@ Cat::Cat()
     Cat = new Brain();
     std::cout << "Cat default constructor Is called" << std::endl;
     for(int i = 0; i < 100; i++)
-        Cat->Brain[i] = "Cat idea";
+        Cat->Ideas[i] = "Cat idea";
 }
 
 Cat::~Cat()
