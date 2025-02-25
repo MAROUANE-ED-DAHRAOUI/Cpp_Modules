@@ -23,6 +23,7 @@ class ClapTrap
         ClapTrap();
         ClapTrap(const ClapTrap &name);
         ClapTrap(const std::string &_Name);
+        ClapTrap& operator=(const ClapTrap& _copy);
         virtual ~ClapTrap();
 
         virtual void attack(const std::string& target);

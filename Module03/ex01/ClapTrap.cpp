@@ -23,6 +23,19 @@ ClapTrap::~ClapTrap()
     std::cout << GREEN << "ClapTrap destructor is called" << RESET << std::endl;
 }
 
+ClapTrap& ClapTrap::operator=(const ClapTrap& _copy)
+{
+	std::cout << "ClapTrap Copy assignment operator called" << std::endl;
+	if (this != &_copy)
+	{
+		Name = _copy.Name;
+		HitPoint = _copy.HitPoint;
+		EnergyPoint = _copy.EnergyPoint;
+		AttackDamage = _copy.AttackDamage;
+	}
+	return (*this);
+}
+
 /**
  * @brief Attacks the specified target.
  * 

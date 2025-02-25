@@ -11,10 +11,10 @@ ScavTrap::ScavTrap() : ClapTrap()
 
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
 {
+    std::cout << GREEN << "ScavTrap constructor parameters called" << RESET << std::endl;
     HitPoint = 100;
 	EnergyPoint = 50;
 	AttackDamage = 20;
-    std::cout << GREEN << "ScavTrap constructor parameters called" << RESET << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& src) : ClapTrap(src)
@@ -30,7 +30,7 @@ ScavTrap::~ScavTrap()
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& src)
 {
-	std::cout << "ScavTrap Copy assignment operator called" << std::endl;
+	std::cout << GREEN << "ScavTrap Copy assignment operator called" << RESET << std::endl;
 	if (this != &src)
 	{
 		Name = src.Name;
