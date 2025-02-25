@@ -2,7 +2,7 @@
 #define CLAPTRAP_H
 
 #include <iostream>
-#include <string>
+#include <cstdlib>
 
 
 #define RED         "\033[31m"      // Red text
@@ -13,22 +13,21 @@
 
 class ClapTrap
 {
-    private:
-        std::string Name;
-        int         HitPoint;
-        int         EnergyPoint;
-        int         AttackDamage;
+    protected:
+            std::string Name;
+            int         HitPoint;
+            int         EnergyPoint;
+            int         AttackDamage;
     public:
         ClapTrap();
-        ClapTrap(ClapTrap &claptrap);
+        ClapTrap(const ClapTrap &claptrap);
         ClapTrap(const std::string _Name);
-        ClapTrap&  operator=(const ClapTrap &name);
+        ClapTrap& operator=(const ClapTrap& _copy);
         ~ClapTrap();
 
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 };
-
 
 #endif

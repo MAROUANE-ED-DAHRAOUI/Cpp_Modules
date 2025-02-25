@@ -2,20 +2,21 @@
 
 DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap()
 {
-    Name = "nothing";
+    this->Name = "nothing";
+    ClapTrap::Name = this->Name + "claptrap";
     HitPoint = FragTrap::HitPoint;
     EnergyPoint = ScavTrap::EnergyPoint;
     AttackDamage = FragTrap::AttackDamage;
     std::cout << "Default constructor DiamondTrap is calling !\n";
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &DmTrap)
+DiamondTrap::DiamondTrap(const DiamondTrap &_copy)
 {
-    this->Name = DmTrap.Name;
-    this->HitPoint = DmTrap.HitPoint;
-    this->EnergyPoint = DmTrap.EnergyPoint;
-    this->AttackDamage = DmTrap.AttackDamage;
-    std::cout << "Constructor DiamondTrap" << Name << "Is call\n";
+    this->Name = _copy.Name;
+    this->HitPoint = _copy.HitPoint;
+    this->EnergyPoint = _copy.EnergyPoint;
+    this->AttackDamage = _copy.AttackDamage;
+    std::cout << "Constructor DiamondTrap" << Name << "Is called \n";
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), ScavTrap(name), FragTrap(name)

@@ -2,7 +2,7 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
-    std::cout << "FragTrap default constructor called" << std::endl;
+    std::cout << GREEN << "FragTrap default constructor called" << RESET << std::endl;
     this->HitPoint = 100;
     this->EnergyPoint = 100;
     this->AttackDamage = 30;
@@ -10,7 +10,7 @@ FragTrap::FragTrap() : ClapTrap()
 
 FragTrap::FragTrap(const std::string name) : ClapTrap(name)
 {
-    std::cout << "FragTrap constructor parameters called" << std::endl;
+    std::cout << GREEN << "FragTrap constructor parameters called" << RESET << std::endl;
     this->HitPoint = 100;
     this->EnergyPoint = 50;
     this->AttackDamage = 20;
@@ -18,29 +18,30 @@ FragTrap::FragTrap(const std::string name) : ClapTrap(name)
 
 FragTrap::FragTrap(const FragTrap &name) : ClapTrap(name)
 {
-    std::cout << "FragTrap copy constructor called" << std::endl;
+    std::cout << GREEN << "FragTrap copy constructor called" << RESET << std::endl;
     *this = name;
 }
 
 FragTrap::~FragTrap()
 {
-    std::cout << "FragTrap destructor called" << std::endl;
+    std::cout << GREEN << "FragTrap destructor called" << RESET << std::endl;
 }
 
-FragTrap& FragTrap::operator=(const FragTrap &assig)
+FragTrap& FragTrap::operator=(const FragTrap &_copy)
 {
-    std::cout << "FragTrap copy assignment operator called" << std::endl;
-    if (this != &assig)
+    std::cout << GREEN << "FragTrap copy assignment operator called" << RESET << std::endl;
+    if (this != &_copy)
     {
-        Name = assig.Name;
-        HitPoint = assig.HitPoint;
-        EnergyPoint = assig.EnergyPoint;
-        AttackDamage = assig.AttackDamage;
+        Name = _copy.Name;
+        HitPoint = _copy.HitPoint;
+        EnergyPoint = _copy.EnergyPoint;
+        AttackDamage = _copy.AttackDamage;
     }
     return (*this);
 }
 
 void FragTrap::highFivesGuys(void)
 {
-    std::cout << "FragTrap " << this->Name << " high fives guys !! 🤚 🤚 🤚" << std::endl;
+    std::cout << GREEN << "FragTrap " << RESET << BOLD << this->Name << RESET
+         << GREEN << " high fives guys !! 🤚 🤚 🤚" << RESET << std::endl;
 }

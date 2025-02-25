@@ -5,15 +5,15 @@
 #include <string>
 
 
-#define RED         "\033[31m"      // Red text
-#define GREEN       "\033[32m"      // Green text
-#define BOLD        "\033[1m"       // Bold text
+#define RED         "\033[31m"
+#define GREEN       "\033[32m"
+#define BOLD        "\033[1m"
 #define MAGENTA     "\033[35m"
 #define RESET       "\033[0m"
 
 class ClapTrap
 {
-    private:
+    protected:
         std::string Name;
         int         HitPoint;
         int         EnergyPoint;
@@ -23,7 +23,7 @@ class ClapTrap
         ClapTrap(const ClapTrap &claptrap);
         ClapTrap(const std::string &_Name);
         ClapTrap&  operator=(const ClapTrap &name);
-        ~ClapTrap();
+        virtual ~ClapTrap();
 
         virtual void attack(const std::string& target);
         void takeDamage(unsigned int amount);
