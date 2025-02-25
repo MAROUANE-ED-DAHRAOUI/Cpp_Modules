@@ -1,6 +1,6 @@
 COMPILE = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = ClapTrap
+NAME = output
 SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
 

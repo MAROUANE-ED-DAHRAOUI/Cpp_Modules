@@ -1,52 +1,26 @@
 #include "ScavTrap.hpp"
 
-// default constructor call
 ClapTrap::ClapTrap() : Name("ClapTrap"), HitPoint(10), EnergyPoint(10), AttackDamage(0)
 {
-    std::cout << GREEN <<"default constructor call" << RESET << std::endl;
+    std::cout << GREEN <<"Claptrap default constructor called" << RESET << std::endl;
 }
 
-// constructor parameters call
-ClapTrap::ClapTrap(const std::string name) : HitPoint(10), EnergyPoint(10), AttackDamage(0)
+ClapTrap::ClapTrap(const std::string& name) : HitPoint(10), EnergyPoint(10), AttackDamage(0)
 {
-    std::cout << GREEN << "constructor parameters call" << RESET << std::endl;
-    Name = name;
+    std::cout << GREEN << "ClapTrap constructor parameters called" << RESET << std::endl;
+    this->Name = name;
 }
 
-// copy constructor Is call
-ClapTrap::ClapTrap(ClapTrap &name) 
+ClapTrap::ClapTrap(const ClapTrap &name) 
 {
-    std::cout << GREEN << "copy constructor Is call \n" << RESET;
+    std::cout << GREEN << "ClapTrap copy constructor Is called \n" << RESET;
     *this = name;
-}
-
-
-/**
- * @brief Assignment operator overload for ClapTrap class.
- * 
- * This operator allows assigning one ClapTrap object to another.
- * It performs a deep copy of the attributes from the source object
- * to the destination object, ensuring that the two objects are independent.
- * 
- * @param name The ClapTrap object to be copied.
- * @return ClapTrap& A reference to the assigned ClapTrap object.
- */
-ClapTrap& ClapTrap::operator=(const ClapTrap& name)
-{
-    if(this != &name)
-    {
-        Name = name.Name;
-        HitPoint = name.HitPoint;
-        EnergyPoint = name.EnergyPoint;
-        AttackDamage = name.AttackDamage;
-    }
-    return (*this);
 }
 
 // destructor is call
 ClapTrap::~ClapTrap()
 {
-    std::cout << GREEN << "destructor is call" << RESET << std::endl;
+    std::cout << GREEN << "ClapTrap destructor is called" << RESET << std::endl;
 }
 
 /**
@@ -94,7 +68,7 @@ void ClapTrap::takeDamage(unsigned int amount)
         return ;
     }
     else
-        std::cout << RED << " ClapTrap can’t do anything if it has no hit pointsor energy points left! \n" << RESET;
+        std::cout << RED << "ClapTrap can’t do anything if it has no hit pointsor energy points left! \n" << RESET;
 }
 
 /**
@@ -117,5 +91,5 @@ void ClapTrap::beRepaired(unsigned int amount)
         AttackDamage += amount;
     }
     else
-        std::cout << RED << " ClapTrap can’t do anything if it has no hit pointsor energy points left! \n" << RESET;
+        std::cout << MAGENTA << "ClapTrap can’t do anything if it has no hit pointsor energy points left! \n" << RESET;
 }

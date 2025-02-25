@@ -2,23 +2,20 @@
 
 int main()
 {
-    ScavTrap scav("boom");
+    ScavTrap scavtrap("boom");
 
-    scav.attack("anemy");
-    scav.takeDamage(15);
-    scav.beRepaired(8);
-    scav.takeDamage(65);
-    scav.attack("anemy");
-    scav.takeDamage(20);
-    scav.attack("anemy");
-    scav.takeDamage(15);
-    scav.attack("anemy");
-    scav.takeDamage(40);
-    scav.attack("anemy");
-    scav.guardGate();
+    scavtrap.attack("anemy");
+    scavtrap.takeDamage(15);
+    scavtrap.beRepaired(8);
+    scavtrap.takeDamage(65);
+    scavtrap.attack("anemy");
+    scavtrap.takeDamage(20);
+    scavtrap.attack("anemy");
+    scavtrap.takeDamage(15);
+    scavtrap.attack("anemy");
+    scavtrap.takeDamage(40);
+    scavtrap.attack("anemy");
+    scavtrap.guardGate();
+
 	return (0);
-    
-
-
-    return (0);
 }
