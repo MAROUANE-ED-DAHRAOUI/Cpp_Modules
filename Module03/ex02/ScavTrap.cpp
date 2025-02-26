@@ -28,9 +28,9 @@ ScavTrap::~ScavTrap()
     std::cout << GREEN << "ScavTrap destructor is called" << RESET << std::endl;
 }
 
-ClapTrap& ClapTrap::operator=(const ClapTrap& src)
+ScavTrap& ScavTrap::operator=(const ScavTrap& src)
 {
-	std::cout << GREEN << "ClapTrap Copy assignment operator called" << RESET << std::endl;
+	std::cout << GREEN << "ScavTrap Copy assignment operator called" << RESET << std::endl;
 	if (this != &src)
 	{
 		Name = src.Name;

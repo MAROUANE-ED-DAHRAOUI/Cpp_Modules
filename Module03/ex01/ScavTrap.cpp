@@ -3,7 +3,7 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
     std::cout << GREEN << "ScavTrap default constructor called" << RESET << std::endl;
-    Name = "nothing";
+    Name = "D";
     HitPoint = 100;
     EnergyPoint = 50;
     AttackDamage = 20;
@@ -45,9 +45,9 @@ void ScavTrap::attack(const std::string& target)
 {
 	if (HitPoint > 0 && EnergyPoint > 0)
 	{
-		std::cout << RED << "ScavTrap " <<  BOLD << Name 
-			<< RED << " attacks " << BOLD << target << RED <<
-			 ", causing " << BOLD << AttackDamage << RED <<
+		std::cout << GREEN << "ScavTrap " <<  MAGENTA << Name 
+			<< RED << " attacks " << RESET <<  BOLD << target << RESET << RED <<
+			 ", causing " << RESET << BOLD << AttackDamage << RESET << RED <<
 			 	 " points of damage!" << RESET << std::endl;
 		EnergyPoint--;
 	}
@@ -57,6 +57,6 @@ void ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate() const
 {
-	std::cout << GREEN << "ScavTrap " << BOLD << Name  << RED << 
+	std::cout << GREEN << "ScavTrap " << MAGENTA << Name  << RED << 
 		" is now in Gate keeper mode" << RESET << std::endl;
 }

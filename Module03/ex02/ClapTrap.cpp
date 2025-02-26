@@ -21,14 +21,14 @@ ClapTrap::ClapTrap(const ClapTrap &name)
     *this = name;
 }
 
-ClapTrap& ClapTrap::operator=(const ClapTrap& name)
+ClapTrap& ClapTrap::operator=(const ClapTrap& src)
 {
-    if(this != &name)
+    if(this != &src)
     {
-        Name = name.Name;
-        HitPoint = name.HitPoint;
-        EnergyPoint = name.EnergyPoint;
-        AttackDamage = name.AttackDamage;
+        Name = src.Name;
+        HitPoint = src.HitPoint;
+        EnergyPoint = src.EnergyPoint;
+        AttackDamage = src.AttackDamage;
     }
     return (*this);
 }
@@ -57,9 +57,11 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
     if(HitPoint > 0 && EnergyPoint > 0)
     {
-        HitPoint -= amount;
         std::cout << RED <<"ClapTrap " << RESET << BOLD << Name 
-        << RESET << RED << " take damage new hit points" << RESET << BOLD << HitPoint << RESET << std::endl;
+        << RESET << RED << " take points of damage " << RESET << BOLD << amount 
+            << RESET << std::endl;
+        HitPoint -= amount;
+
         return ;
     }
     else
