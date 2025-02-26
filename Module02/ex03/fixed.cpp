@@ -45,7 +45,7 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const 
 {
-    return static_cast<float>(this->_FixedPoint) / (1 << _number);
+    return (float)this->_FixedPoint / (float)(1 << _number);
 }
 
 int Fixed::toInt(void) const 

@@ -6,12 +6,12 @@ Point::Point() : _x(0), _y(0)
     return ;
 }
 
-Point::Point(const float xnb, const float ynb) : _x(Fixed(xnb)), _y(Fixed(ynb))
+Point::Point(float x, float y) : _x(x), _y(y)
 {
 
 }
 
-Point::Point(const Point &Ob) : _x(Fixed(Ob._x)), _y(Fixed(Ob._y))
+Point::Point(const Point &Ob) : _x(Ob._x), _y(Ob._y)
 {
 
 }
@@ -27,12 +27,12 @@ Point::~Point()
 
 }
 
-Fixed Point::getX() const
+float Point::getX() const
 {
-    return (this->_x);
+    return ((float)_x.toFloat());
 }
 
-Fixed Point::getY() const
+float Point::getY() const
 {
-    return (this->_y);
+    return ((float)_y.toFloat());
 }

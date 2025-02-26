@@ -1,13 +1,12 @@
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
-#include <string>
 #include <iostream>
 
 class Fixed{
 
     private:
-            int        _FixedValue;
+            int        _FixedPoint;
             static const int _number;
     public:
             Fixed();

@@ -1,6 +1,6 @@
 #include "fixed.hpp"
 
-Fixed::Fixed() : _FixedValue(0) 
+Fixed::Fixed() : _FixedPoint(0) 
 {
     std::cout << "Default constructor called" << std::endl;
 }
@@ -8,13 +8,13 @@ Fixed::Fixed() : _FixedValue(0)
 Fixed::Fixed(const int value) 
 {
     std::cout << "Int constructor called" << std::endl;
-    this->_FixedValue = value << _number;
+    this->_FixedPoint = value << _number;
 }
 
 Fixed::Fixed(const float value) 
 {
     std::cout << "Float constructor called" << std::endl;
-    this->_FixedValue = roundf(value * (1 << _number));
+    this->_FixedPoint = roundf(value * (1 << _number));
 }
 
 Fixed::Fixed(const Fixed &instance) 
@@ -32,29 +32,29 @@ Fixed& Fixed::operator=(const Fixed &rhs)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &rhs) {
-        this->_FixedValue = rhs.getRawBits();
+        this->_FixedPoint = rhs.getRawBits();
     }
     return *this;
 }
 
 int Fixed::getRawBits(void) const 
 {
-    return this->_FixedValue;
+    return this->_FixedPoint;
 }
 
 void Fixed::setRawBits(int const raw) 
 {
-    this->_FixedValue = raw;
+    this->_FixedPoint = raw;
 }
 
 float Fixed::toFloat(void) const 
 {
-    return static_cast<float>(this->_FixedValue) / (1 << _number);
+    return static_cast<float>(this->_FixedPoint) / (1 << _number);
 }
 
 int Fixed::toInt(void) const 
 {
-    return this->_FixedValue >> _number;
+    return this->_FixedPoint >> _number;
 }
 
 std::ostream& operator<<(std::ostream &out, const Fixed &fixed) 

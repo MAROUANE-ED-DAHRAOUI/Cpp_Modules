@@ -10,7 +10,7 @@ class Fixed
 {
 
         private:
-                int _FixedValue;
+                int _FixedPoint;
                 static const int _number = 8;
 
         public:

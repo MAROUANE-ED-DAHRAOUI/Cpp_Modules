@@ -1,7 +1,7 @@
 #include "Point.hpp"
 
 // Helper function to get absolute value of Fixed
-static Fixed fpAbs(Fixed f)
+Fixed fpAbs(Fixed f)
 {
     if (f.getRawBits() < 0)
         f.setRawBits(-f.getRawBits());
@@ -9,7 +9,7 @@ static Fixed fpAbs(Fixed f)
 }
 
 // Calculate area of the triangle using Fixed point
-static Fixed CalculateArea(Point const& p1, Point const& p2, Point const& p3)
+Fixed CalculateArea(Point const& p1, Point const& p2, Point const& p3)
 {
     return (p1.getX() * (p2.getY() - p3.getY())
             + p2.getX() * (p3.getY() - p1.getY())
@@ -28,4 +28,3 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
     // Return true if the areas match and no sub-area is zero
     return ((TotalArea == ar1 + ar2 + ar3) && (ar1 != 0 && ar2 != 0 && ar3 != 0));
 }
-
