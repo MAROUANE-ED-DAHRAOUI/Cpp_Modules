@@ -2,25 +2,25 @@
 
 Animal::Animal()
 {
-    type = "nothing";
-    std::cout << "Default constructor Is call\n";
+    type = "Animal";
+    std::cout << GREEN << "Animal : Default constructor Is called\n" << RESET;
 }
 
 Animal::Animal(const std::string &Type)
 {
-    std::cout << "default constructor param is called" << std::endl;
+    std::cout << GREEN << "Animal : default parametres constructor is called" << RESET << std::endl;
     type = Type;
 }
 
 Animal::Animal(const Animal &copy)
 {
+    std::cout << GREEN << "Animal : copy constructor Animal is called \n" << RESET;
     *this = copy;
-    std::cout << "copy constructor is called \n";
 }
 
 Animal &Animal::operator=(const Animal &OpOv)
 {
-    std::cout << "Animal Copy Assigment operator is called" << std::endl;
+    std::cout << BOLD << "Animal : Copy Assigment operator overloading is called" << RESET<< std::endl;
     if(this != &OpOv)
         this->type = OpOv.type;
     return (*this);
@@ -28,7 +28,7 @@ Animal &Animal::operator=(const Animal &OpOv)
 
 Animal::~Animal()
 {
-    std::cout << "Default destructor is called" << std::endl;
+    std::cout << RED << "Default destructor Animal is called" << RESET << std::endl;
 }
 
 const std::string&     Animal::getType(void) const
@@ -38,5 +38,5 @@ const std::string&     Animal::getType(void) const
 
 void    Animal::makeSound(void) const
 {
-    std::cout << "Animal: Animal make sound" << std::endl;
+    std::cout << MAGENTA << "Animal : Animal make sound" << RESET << std::endl;
 }

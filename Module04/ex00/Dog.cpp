@@ -1,31 +1,30 @@
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog() : Animal("Dog")
 {
-    type = "Dog";
-    std::cout << "Dog: Default Constructor Is Called" << std::endl;
+    std::cout << GREEN << "Dog : Default Constructor Is Called" << RESET << std::endl;
 }
 
 Dog::Dog(const Dog& _Copy) : Animal(_Copy)
 {
-    std::cout << "Dog: Copy constructor Is Called" << std::endl;
+    std::cout << GREEN << "Dog : Copy constructor Is Called" << RESET << std::endl;
     *this = _Copy;
 }
 
 Dog::~Dog()
 {
-    std::cout << "Dog: Default Destructor Is Called" << std::endl;
+    std::cout << RED << "Dog : Default Destructor Is Called" << RESET << std::endl;
 }
 
-Dog::operator=(const Dog &_OpOv)
+Dog& Dog::operator=(const Dog &_OpOv)
 {
-    std::cout << "Dog Copy Issigment Operator Is Called" << std::endl;
-    if(*this != _OpOv)
+    std::cout << BOLD << "Dog : Copy Issigment Operator Is Called" << RESET << std::endl;
+    if(this != &_OpOv)
         this->type = _OpOv.type;
     return (*this);
 }
 
-void Dog::makeSound(void)
+void Dog::makeSound(void) const
 {
-    std::cout << "Dog Make Sound HawHawHaw" << std::endl;
+    std::cout << MAGENTA << "Dog : Make Sound HawHawHaw" << RESET << std::endl;
 }
