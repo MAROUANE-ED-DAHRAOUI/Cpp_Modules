@@ -1,40 +1,40 @@
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog() : Animal("Dog")
 {
-    std::cout << "Dog: Default Constructor Is Called" << std::endl;
-    type = "Dog";
-    Dog = new Brain();
+    std::cout << GREEN << "Dog : Default Constructor Is Called" << RESET << std::endl;
+    brain = new Brain();
     for(int i = 0; i < 100; i++)
-        Dog->Ideas[i] = "Dog Idea";
+        brain->Ideas[i] = "Dog Idea";
 }
 
 Dog::Dog(const Dog& _Copy) : Animal(_Copy)
 {
-    std::cout << "Dog: Copy constructor Is Called" << std::endl;
-    Dog = new Brain(*_Copy.Dog);
+    std::cout << GREEN << "Dog : Copy constructor Is Called" << RESET << std::endl;
+    brain = new Brain(*_Copy.brain);
     *this = _Copy;
+
 }
 
 Dog::~Dog()
 {
-    std::cout << "Dog: Default Destructor Is Called" << std::endl;
-    delete (Dog);
+    std::cout << RED << "Dog : Default Destructor Is Called" << RESET << std::endl;
+    delete brain;
 }
 
-Dog::operator=(const Dog &_OpOv)
+Dog& Dog::operator=(const Dog &_Opr)
 {
-    std::cout << "Dog Copy Issigment Operator Is Called" << std::endl;
-    if(this != &_OpOv)
+    std::cout << BOLD << "Dog : Copy Issigment Operator Is Called" << RESET << std::endl;
+    if(this != &_Opr)
     {
-        delete (Dog);
-        Dog = new Brain(_OpOv.Dog);
-        this->type = _OpOv.type;
+        delete brain;
+        brain = new Brain(*_Opr.brain);
+        this->type = _Opr.type;
     }
     return (*this);
 }
 
-void Dog::makeSound(void)
+void Dog::makeSound(void) const
 {
-    std::cout << "Dog Make Sound HawHawHaw" << std::endl;
+    std::cout << MAGENTA << "Dog : Make Sound HawHawHaw" << RESET << std::endl;
 }

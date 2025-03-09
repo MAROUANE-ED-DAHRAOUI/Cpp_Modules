@@ -1,30 +1,30 @@
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat() : WrongAnimal("Cat")
+WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-    std::cout << "WrongCat default constructor Is Called" << std::endl;
+    std::cout << GREEN << "WrongCat : default constructor Is Called" << RESET << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat &Copy) : WrongAnimal(Copy)
 {
-    std::cout << "WrongCat Copy constructor Is called" << std::endl;
+    std::cout << GREEN << "WrongCat : Copy constructor Is called" << RESET << std::endl;
     *this = Copy;
 }
 
 WrongCat::~WrongCat()
 {
-    std::cout << "WrongCat default Destructor Is called\n";
+    std::cout << RED << "WrongCat : default Destructor Is called\n" << RESET;
 }
 
-WrongCat &WrongCat::operator=(const WrongCat &OpOv)
+WrongCat &WrongCat::operator=(const WrongCat &Opr)
 {
-    std::cout << "WrongCat Operator overload Is called" << std::endl;
-    if(this != OpOv)
-        this->type = OpOv.type;
+    std::cout << BOLD << "WrongCat : Operator overload Is called" << RESET << std::endl;
+    if(this != &Opr)
+        this->type = Opr.type;
     return (*this);
 }
 
 void    WrongCat::makeSound(void) const
 {
-    std::cout << "WrongCat Is Make Sound Meao Meao" << std::endl;
+    std::cout << RED << "WrongCat Is Make Sound Meao Meao" << RESET << std::endl;
 }

@@ -7,10 +7,10 @@ class WrongCat : public WrongAnimal{
 
         public:
                 WrongCat();
-                WrongCat(const WrongCat &copy);
                 ~WrongCat();
-                WrongCat &operator=(WrongCat &OpOv);
-                void      makeSound(void);
+                WrongCat(const WrongCat &copy);
+                WrongCat &operator=(const WrongCat &Opr);
+                void      makeSound(void) const;
 };
 
 #endif

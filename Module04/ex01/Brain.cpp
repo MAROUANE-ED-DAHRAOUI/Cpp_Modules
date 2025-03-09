@@ -2,29 +2,29 @@
 
 Brain::Brain()
 {
-    std::cout << "Brain default constructor is called";
+    std::cout << GREEN <<"Brain : default constructor is called" << RESET << std::endl;
     for(int i = 0; i < 100; i++)
-        Ideas[i] = "default";
+        Ideas[i] = "Use It brain";
 }
 
 Brain::~Brain()
 {
-    std::cout << "Brain default destructor is called" << std::endl;
+    std::cout << RED << "Brain default destructor is called" << std::endl;
 }
 
-Brain::Brain(Brain &Copy)
+Brain::Brain(const Brain &Copy)
 {
-    std::cout << "Brain copy constructor Is called" << std::endl;
+    std::cout << GREEN << "Brain copy constructor Is called" << RESET << std::endl;
     *this = Copy;
 }
 
-Brain &Brain::operator=(Brain &OpOv)
+Brain &Brain::operator=(const Brain &Opr)
 {
     std::cout << "Brain Copy Issigment operator is called" << std::endl;
-    if(this != &OpOv)
+    if(this != &Opr)
     {
         for(int i = 0; i < 100; i++)
-            Ideas[i] = OpOv.Idea[i];
+            Ideas[i] = Opr.Ideas[i];
     }
     return (*this);
 }
