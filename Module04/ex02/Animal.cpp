@@ -2,37 +2,36 @@
 
 Animal::Animal()
 {
-    type = "nothing";
-    std::cout << "Default constructor Is call\n";
+    type = "Animal";
+    std::cout << GREEN << "Animal : Default constructor Is called\n" << RESET << std::endl;
 }
 
 Animal::Animal(const std::string &Type)
 {
-    std::cout << "default constructor param is called" << std::endl;
+    std::cout << GREEN << "Animal : constructor param is called" << RESET << std::endl;
     type = Type;
 }
 
 Animal::Animal(const Animal &copy)
 {
     *this = copy;
-    std::cout << "copy constructor is called \n";
+    std::cout << GREEN << "Animal : copy constructor is called \n" << std::endl;
 }
 
-Animal &Animal::operator=(const Animal &OpOv)
+Animal &Animal::operator=(const Animal &Opr)
 {
-    std::cout << "Animal Copy Assigment operator is called" << std::endl;
-    if(this != &OpOv)
-        this->type = OpOv.type;
+    std::cout << GREEN << "Animal : Copy Assigment operator is called" << RESET << std::endl;
+    if(this != &Opr)
+        this->type = Opr.type;
     return (*this);
 }
 
 Animal::~Animal()
 {
-    std::cout << "Default destructor is called" << std::endl;
+    std::cout << RED << "Default destructor is called" << RESET << std::endl;
 }
 
 const std::string&     Animal::getType(void) const
 {
     return (type);
 }
-

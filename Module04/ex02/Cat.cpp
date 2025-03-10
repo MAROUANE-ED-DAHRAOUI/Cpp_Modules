@@ -1,40 +1,39 @@
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat() : Animal("Cat")
 {
-    type = "Cat";
-    Cat = new Brain();
-    std::cout << "Cat default constructor Is called" << std::endl;
+    std::cout << GREEN << "Cat : default constructor Is called" << RESET << std::endl;
+    brain = new Brain();
     for(int i = 0; i < 100; i++)
-        Cat->Ideas[i] = "Cat idea";
+        brain->Ideas[i] = "Cat idea";
 }
 
 Cat::~Cat()
 {
-    std::cout << "Cat Default constructor Is called" << std::endl;
-    delete (Cat);
+    std::cout << RED << "Cat : Default constructor Is called" << RESET << std::endl;
+    delete (brain);
 }
 
 Cat::Cat(const Cat &Copy) : Animal(Copy)
 {
-        std::cout << "Cat Copy Consructor Is Called" << std::endl;
-        Cat = new Brain(*Copy.Cat);
+        std::cout << MAGENTA << "Cat : Copy Consructor Is Called" << RESET << std::endl;
+        brain = new Brain(*Copy.brain);
         *this = Copy;
 }
 
-Cat &Cat::operator=(const Cat &OpOv)
+Cat &Cat::operator=(const Cat &Opr)
 {
-    std::cout << "Cat Copy Assigment Operator Overload Is Called" << std::endl;
-    if(this != &OpOv)
+    std::cout << MAGENTA << "Cat : Copy Assigment Operator Overload Is Called" << RESET << std::endl;
+    if(this != &Opr)
     {
-        delete (Cat);
-        Cat = new Brain(&OpOv.Cat);
-        this->type = OpOv.type;
+        delete (brain);
+        brain = new Brain(*Opr.brain);
+        this->type = Opr.type;
     }
     return (*this);
 }
 
-void    Cat::makeSound(void)
+void    Cat::makeSound(void) const
 {
-    std::cout << "Cat: Meow Meow Meow Meow" << std::endl;
+    std::cout << GREEN << "Cat: " << RESET << MAGENTA   << "Meow Meow Meow Meow" << RESET << std::endl;
 }

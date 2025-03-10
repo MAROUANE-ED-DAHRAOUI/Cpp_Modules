@@ -4,6 +4,12 @@
 #include <iostream>
 #include <string>
 
+#define RED         "\033[31m"
+#define GREEN       "\033[32m"
+#define BOLD        "\033[1m"
+#define MAGENTA     "\033[35m"
+#define RESET       "\033[0m"
+
 class WrongAnimal{
 
     protected:
@@ -13,9 +19,9 @@ class WrongAnimal{
             WrongAnimal(const WrongAnimal &_Copy);
             WrongAnimal(const std::string &_type);
             virtual ~WrongAnimal();
-            WrongAnimal &operator=(WrongAnimal &OpOv);
-            virtual void makeSound(void);
-            void    getType(void);
+            WrongAnimal &operator=(const WrongAnimal &Opr);
+            void makeSound(void) const;
+            const std::string    getType(void) const;
 };
 
 #endif

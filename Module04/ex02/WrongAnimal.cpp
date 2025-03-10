@@ -2,41 +2,41 @@
 
 WrongAnimal::WrongAnimal() : type("WrongAnimal")
 {
-    std::cout << "Default constructor is call\n";
+    std::cout << GREEN << "WrongAnimal : Default constructor is call\n" << RESET;
 }
 
 
 WrongAnimal::WrongAnimal(const WrongAnimal &_Copy)
 {
-    std::cout << "WrongAnimal copy constructor is called\n";
+    std::cout << MAGENTA << "WrongAnimal copy constructor is called\n" << RESET;
     *this = _Copy;
 }
 
-WrongAnimal::WrongAnimal(const std::string _type)
+WrongAnimal::WrongAnimal(const std::string& _type)
 {
-    std::cout << "WrongAnimal Constructor param Is called" << std::endl;
+    std::cout << MAGENTA << "WrongAnimal Constructor param Is called" << RESET << std::endl;
     type = _type;
 }
 
 WrongAnimal::~WrongAnimal()
 {
-    std::cout << "WrongAnimal Destructor Is called" << std::endl;
+    std::cout << RED << "WrongAnimal Destructor Is called" << RESET << std::endl;
 }
 
-WrongAnimal::operator=(WrongAnimal &OpOv)
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal &Opr)
 {
-    std::cout << "WrongAnimal Copy Issigment Operator is called\n";
-    if(this != &OpOv)
-        this->type = OpOv.type;
+    std::cout << MAGENTA << "WrongAnimal Copy Issigment Operator is called\n" << RESET;
+    if(this != &Opr)
+        this->type = Opr.type;
     return (*this);
 }
 
-void WrongAnimal::makeSound(void)
+void WrongAnimal::makeSound(void) const
 {
-    std::cout << "WrongAnimal Make Sound" << std::endl;
+    std::cout << MAGENTA << "WrongAnimal " << RESET << GREEN << "Make Sound" << std::endl;
 }
 
-void    WrongAnimal::getType(void) const
+const std::string    WrongAnimal::getType(void) const
 {
     return (type);
 }
