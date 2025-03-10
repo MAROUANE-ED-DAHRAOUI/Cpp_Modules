@@ -18,11 +18,11 @@ Animal::Animal(const Animal &copy)
     *this = copy;
 }
 
-Animal &Animal::operator=(const Animal &OpOv)
+Animal &Animal::operator=(const Animal &Opr)
 {
     std::cout << BOLD << "Animal : Copy Assigment operator overloading is called" << RESET<< std::endl;
-    if(this != &OpOv)
-        this->type = OpOv.type;
+    if(this != &Opr)
+        this->type = Opr.type;
     return (*this);
 }
 

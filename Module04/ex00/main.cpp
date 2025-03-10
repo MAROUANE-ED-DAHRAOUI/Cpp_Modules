@@ -17,18 +17,18 @@ int main()
 	delete meta;
 	delete j;
 	delete i;
-	std::cout << "------------ test for wrong animal --------" << std::endl;
 
 	const WrongAnimal* a = new WrongCat();
 	
 	std::cout << a->getType() << " " << std::endl;
 	a->makeSound();
 	delete a;
-	
-	std::cout << "------------ another tests --------" << std::endl;
+
 	Cat* c = new Cat();
 	Cat* d = new Cat(*c);
-
 	d->makeSound();
+
+	delete c;
+	delete d;
 	return 0;
 }

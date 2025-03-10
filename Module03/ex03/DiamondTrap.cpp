@@ -30,16 +30,16 @@ DiamondTrap::~DiamondTrap()
     std::cout << "Destructor DiamondTrap Is call" << std::endl;
 }
 
-DiamondTrap& DiamondTrap::operator=(const DiamondTrap& OpOv)
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap& Opr)
 {
 	std::cout << "DiamondTrap Copy assignment operator called" << std::endl;
-	if (this != &OpOv)
+	if (this != &Opr)
 	{
-		_Name = OpOv.Name;
-		ClapTrap::Name = OpOv.ClapTrap::Name;
-		HitPoint = OpOv.HitPoint;
-		EnergyPoint = OpOv.EnergyPoint;
-		AttackDamage = OpOv.AttackDamage;
+		_Name = Opr.Name;
+		ClapTrap::Name = Opr.ClapTrap::Name;
+		HitPoint = Opr.HitPoint;
+		EnergyPoint = Opr.EnergyPoint;
+		AttackDamage = Opr.AttackDamage;
 	}
 	return (*this);
 }

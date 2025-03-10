@@ -16,11 +16,11 @@ WrongCat::~WrongCat()
     std::cout << RED << "WrongCat : default Destructor Is called\n" << RESET;
 }
 
-WrongCat &WrongCat::operator=(const WrongCat &OpOv)
+WrongCat &WrongCat::operator=(const WrongCat &Opr)
 {
     std::cout << BOLD << "WrongCat : Operator overload Is called" << RESET << std::endl;
-    if(this != &OpOv)
-        this->type = OpOv.type;
+    if(this != &Opr)
+        this->type = Opr.type;
     return (*this);
 }
 

@@ -1,8 +1,7 @@
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat() : Animal("Cat")
 {
-    type = "Cat";
     std::cout << GREEN << "Cat : default constructor Is called" << RESET << std::endl;
 }
 
@@ -17,11 +16,11 @@ Cat::Cat(const Cat &Copy) : Animal(Copy)
         *this = Copy;
 }
 
-Cat &Cat::operator=(const Cat &OpOv)
+Cat &Cat::operator=(const Cat &Opr)
 {
     std::cout << BOLD << "Cat : Copy Assigment Operator Overload Is Called" << RESET << std::endl;
-    if(this != &OpOv)
-        this->type = OpOv.type;
+    if(this != &Opr)
+        this->type = Opr.type;
     return (*this);
 }
 

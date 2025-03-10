@@ -17,11 +17,11 @@ WrongAnimal::WrongAnimal(const WrongAnimal &_Copy)
     *this = _Copy;
 }
 
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal &OpOv)
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &Opr)
 {
     std::cout << BOLD << "WrongAnimal : Copy Issigment Operator is called\n" << RESET;
-    if(this != &OpOv)
-        this->type = OpOv.type;
+    if(this != &Opr)
+        this->type = Opr.type;
     return (*this);
 }
 

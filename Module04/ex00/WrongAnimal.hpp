@@ -18,7 +18,7 @@ class WrongAnimal{
             WrongAnimal(const WrongAnimal &_Copy);
             WrongAnimal(const std::string &_type);
             ~WrongAnimal();
-            WrongAnimal &operator=(const WrongAnimal &OpOv);
+            WrongAnimal &operator=(const WrongAnimal &Opr);
             void        makeSound(void) const;
             const std::string   getType(void) const;
 };
