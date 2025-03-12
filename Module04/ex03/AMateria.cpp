@@ -24,5 +24,20 @@ AMateria::~AMateria()
 
 AMateria &AMateria::operator=(const AMateria &Opr)
 {
-    std::cout << MAGENTA << "Assigment operator Is called"
+    std::cout << MAGENTA << "Assigment operator Is called" << RESET << std::endl;
+    while(this != &Opr)
+    {
+        this->type = Opr.type;
+    }
+    return (this);
+}
+
+std::string const & AMateria::getType() const
+{
+    return (type);
+}
+
+void AMateria::use(ICharacter& target)
+{
+    std::cout << GREEN << target.getName() << RESET << std::endl;
 }
