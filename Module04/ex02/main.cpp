@@ -15,13 +15,17 @@ int main()
     delete (j);
     delete (i);
 
-    Cat* cat1 = new Cat();
+	std::cout << "\n----------------------------------------\n";
+   
+	Cat* cat1 = new Cat();
 	Cat* cat2 = new Cat();
 
 	*cat1 = *cat2;
 
 	delete cat1;
 	delete cat2;
+
+	std::cout << "\n----------------------------------------\n";
 
 	int len = 10, index = -1;
 
@@ -38,6 +42,8 @@ int main()
 	while (++index < len)
 		delete animal[index];
 	delete [] animal;
+
+	std::cout << "\n----------------------------------------\n";
 
     return 0;
 }
