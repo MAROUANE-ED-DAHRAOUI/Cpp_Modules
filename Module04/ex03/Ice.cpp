@@ -1,25 +1,33 @@
 #include "Ice.hpp"
 
-Ice::Ice() : AMateria("Ice"){
-    std::cout << GREEN << "Ice : Default constructor Is called\n" << RESET;
+Ice::Ice() : AMateria("ice")
+{
+	std::cout << "Ice Default constructor called" << std::endl;
 }
 
-Ice::Ice(const Ice& Copy) : AMateria(Copy)
+Ice::~Ice()
 {
-    std::cout << MAGENTA << "Ice Constructor with parame Is called\n" << RESET << std::endl;
+	std::cout << "Ice Destructor called" << std::endl;
 }
 
-Ice::~Ice ()
+Ice::Ice(const Ice& _copy) : AMateria(_copy)
 {
-    std::cout << RED << "Ice : Destructor Is called\n" << RESET;
+	std::cout << "Ice Constructor with param called" << std::endl;
+}
+
+Ice& Ice::operator=(const Ice& _assignment)
+{
+	(void)_assignment;
+	std::cout << "Ice Copy assignment operator called" << std::endl;
+	return (*this);	
 }
 
 Ice* Ice::clone() const
 {
-    return (new Ice());
+	return (new Ice());
 }
 
 void Ice::use(ICharacter& target)
 {
-    std::cout << GREEN << "* shoots an ice bolt at " << MAGENTA << target.getName() << " *\n" << RESET; 
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

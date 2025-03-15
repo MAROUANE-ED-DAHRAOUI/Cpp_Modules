@@ -5,15 +5,15 @@
 
 class MateriaSource : public IMateriaSource
 {
-    private:
-        AMateria* TheireStok[4];
-    public:
-    MateriaSource();
-    ~MateriaSource();
-    MateriaSource(const MateriaSource& Copy);
-    const MateriaSource& operator=(const MateriaSource& Opr);
-    void	learnMateria(AMateria* Arg);
-	AMateria*	createMateria(std::string const& Type);
+	private:
+		AMateria* inventory[4];
+	public:
+		MateriaSource();
+		~MateriaSource();
+		MateriaSource(const MateriaSource& _copy);
+		const MateriaSource& operator=(const MateriaSource& _assignment);
+		void learnMateria(AMateria* m);
+		AMateria* createMateria(std::string const & type);
 };
 
-#endif  
+#endif

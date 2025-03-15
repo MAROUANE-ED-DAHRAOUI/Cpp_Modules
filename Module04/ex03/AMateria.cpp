@@ -1,14 +1,14 @@
 #include "AMateria.hpp"
 
-AMateria::AMateria() : type("AMateria")
+AMateria::AMateria() : type("default")
 {
     std::cout << GREEN << "AMateria : default constructor Is called"  << RESET << std::endl;
 }
 
-AMateria::AMateria(const std::string &_Type)
+AMateria::AMateria(const std::string &type)
 {
     std::cout << GREEN << "AMateria default Param constructor Is called\n" << RESET << std::endl;
-    type = _Type;
+    this->type = type;
 }
 
 AMateria::AMateria(const AMateria &Copy)
@@ -29,7 +29,7 @@ AMateria &AMateria::operator=(const AMateria &Opr)
     {
         this->type = Opr.type;
     }
-    return (this);
+    return (*this);
 }
 
 std::string const & AMateria::getType() const

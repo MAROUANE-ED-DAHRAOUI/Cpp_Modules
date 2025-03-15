@@ -1,25 +1,33 @@
 #include "Cure.hpp"
 
-Cure::Cure() : AMateria("cure"){
-    std::cout << GREEN << "Cure : default constructor is called" << RESET << std::endl;
+Cure::Cure() : AMateria("cure")
+{
+	std::cout << "Cure Default constructor called" << std::endl;
 }
 
-Cure::Cure(const Cure& CopyCure) : AMateria(CopyCure)
+Cure::~Cure()
 {
-    std::cout << MAGENTA << "Cure param Constructor Is called\n" << RESET << std::endl;
+	std::cout << "Cure Destructor called" << std::endl;
 }
 
-Cure::~Cure ()
+Cure::Cure(const Cure& _copy) : AMateria(_copy)
 {
-    std::cout << RED << "Cure Destructor Is Called" << RESET << std::endl;
+	std::cout << "Cure Constructor with param called" << std::endl;
+}
+
+Cure& Cure::operator=(const Cure& _assignment)
+{
+	(void)_assignment;
+	std::cout << "Cure Copy assignment operator called" << std::endl;
+	return (*this);	
 }
 
 Cure* Cure::clone() const
 {
-    return (new Cure())
+	return (new Cure());
 }
 
-void Cure::use(ICharacter &target)
+void Cure::use(ICharacter& target)
 {
-    std::cout << GREEN << "* heals "<< BOLD << target.getName() << GREEN <<" ’s wounds *" << << RESET << std::endl;
+	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }

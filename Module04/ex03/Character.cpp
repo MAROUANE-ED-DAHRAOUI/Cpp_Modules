@@ -1,53 +1,101 @@
 #include "Character.hpp"
 
-Character::Character() : name("ByDefault")
+Character::Character() : name("Default")
 {
-    std::cout << GREEN << "Character : Default constructor Is Called" << RESET << std::endl;
-    for(int i = 0; i < 4; i++)
-    {
-        TheirStock[i] = NULL;
-        Floor[i] = NULL;
-    }
+	std::cout << "Character Default constructor called" << std::endl;
+	int i = -1;
+	while (++i < 4)
+	{
+		inventory[i] = NULL;
+		trachInventory[i] = NULL;
+	}
+}
+
+static bool checkInventory(AMateria** inventory, AMateria* m)
+{
+	int i = -1;
+	while (++i < 4)
+	{
+		if (inventory[i] && inventory[i] == m)
+			return (false);
+	}
+	return (true);
+}
+
+Character::~Character()
+{
+	std::cout << "Character Destructor called" << std::endl;
+	int i = 0;
+	while (i < 4)
+	{
+		if (checkInventory(trachInventory, inventory[i]) == false)
+			delete inventory[i];
+		else
+		{
+			delete inventory[i];
+			delete trachInventory[i];		
+		}
+		i++;
+	}
 }
 
 Character::Character(const std::string& _name) : name(_name)
 {
-    std::cout << GREEN << "Character : Constructor param Is Called" << RESET << std::endl;
-    for(int i = 0; i < 4; i++)
-    {
-        TheirStock[i] = NULL;
-        Floor[i] = NULL;
-    }
-}
-
-Character::Character(const Character &_Copy)
-{
-    std::cout << MAGENTA << "Character Copy Constructor Is Called " << RESET << std::endl;
-    for(int i = 0; i < 4; i++)
-    {
-        TheirStock[i] = NULL;
-        Floor[i] = NULL;
-    }
-}
-
-const Character& Character::operator=(const Character& Opr)
-{
-    std::cout << MAGENTA << "Character Copy Assigment operator overloading" << RESET << std::endl;
-    if (this != &Opr)
+	std::cout << "Character Constructor with param called" << std::endl;
+	int i = -1;
+	while (++i < 4)
 	{
-		this->name = Opr.name;
+		inventory[i] = NULL;
+		trachInventory[i] = NULL;
+	}
+}
+
+Character::Character(const Character& _copy)
+{
+	std::cout << "Character Copy constructor called" << std::endl;
+	int i = -1;
+	while (++i < 4)
+	{
+		inventory[i] = NULL;
+		trachInventory[i] = NULL;
+	}
+	*this = _copy;
+}
+
+static void	freeTrachInventory(AMateria** trachInventory, AMateria** Inventory)
+{
+	int i = -1;
+
+	while (++i < 4)
+	{
+		if (checkInventory(Inventory, trachInventory[i]) == true)
+		{
+			delete trachInventory[i];
+			trachInventory[i] = NULL;
+		}
+	}	
+}
+
+const Character& Character::operator=(const Character& _assignment)
+{
+	int	i = -1;
+
+	std::cout << "Character Copy assignment operator called" << std::endl;
+	if (this != &_assignment)
+	{
+		name = _assignment.name;
 		while (++i < 4)
 		{
 			if (inventory[i] != NULL)
-				delete TheirStock[i];
-			if (Floor[i] != NULL)
-				delete Floor[i];
+				delete inventory[i];
+			if (trachInventory[i] != NULL)
+				delete trachInventory[i];
 			
-			if (Opr.iTheirStock[i])
-				inventory[i] = Opr.TheirStock[i]->clone();
+			if (_assignment.inventory[i])
+				inventory[i] = _assignment.inventory[i]->clone();
 			else
-			   TheirStock[i] = NULL;
-			   Floor[i] = NULL;
+				inventory[i] = NULL;
+			trachInventory[i] = NULL;
 		}
 	}
 	return (*this);
@@ -55,65 +103,49 @@ const Character& Character::operator=(const Character& Opr)
 
 std::string const & Character::getName() const
 {
-    return (name);
+	return (name);
 }
 
-void    freeFloor(AMateria **ThereStook, AMateria **AmtrFloor)
+void Character::equip(AMateria* m)
 {
-    for(int j = 0; j < 4; i++)
-    {
-        if(CheckStok(ThereStook, AmtrFloor))
-        {
-            delete AmtrFloor[i];
-            AmtrFloor = NULL;
-        }
-    }
+	int i = 0;
+	if (m != NULL)
+	{
+		while (i < 4 && inventory[i] != NULL){i++;}
+		if (i < 4)
+		{
+			if (!checkInventory(inventory, m))
+				inventory[i] = m->clone();
+			else
+				inventory[i] = m;
+		}
+		else
+		{
+			std::cout << "Character can't add more AMateria Cuz inventory is full!!" << std::endl;
+			if (checkInventory(inventory, m))
+			{
+				std::cout << "deleting ..." << std::endl;
+				delete m;
+			}
+		}
+	}
+	freeTrachInventory(trachInventory, inventory);
 }
 
-void Character::equip(AMateria* Amater)
+void Character::unequip(int idx)
 {
-    int i = 0;
-    if(Amater != NULL)
-    {
-        while(i < 4 && TheirStock[i] != NULL)
-            i++;
-        if(i < 4)
-        {
-            if(CheckStok(TheirStock, Amater) == false)
-                TheirStock[i] = Amater->clone();
-            else
-                TheirStock[i] = Amater;
-        }
-        else{
-            std::cout << GREEN << "Character Can't create , TheirStock Is full :-(" << RESET << std::endl;
-            if(CheckStok(TheirStock, Amater) == true)
-            {
-                std::cout << RED << "Delete Amater" << RESET << std:: endl;
-                delete Amater;
-            }
-        }
-    }
-    freeFloor(&TheirStock, &Floor);
+	if (idx > -1 && idx < 4 && inventory[idx])
+	{
+		if (!checkInventory(trachInventory, inventory[idx]))
+			trachInventory[idx] = inventory[idx]->clone();
+		else
+			trachInventory[idx] = inventory[idx];
+		inventory[idx] = NULL;
+	}
 }
 
-void Character::unequip(int i)
+void Character::use(int idx, ICharacter& target)
 {
-    if(i > -1 && i < 4 && TheirStock[i])
-    {
-        if (CheckStok(TheirStock[i], Floor))
-        {
-            Floor[i] = TheirStock[i]->clone();
-        }
-        else
-        {
-            Floor[i] = TheirStock[i];
-        }
-        TheirStock[i] = NULL;
-    }
-}
-
-void Character::use(int i, ICharacter& target)
-{
-    if(TheirStock[i])
-        TheirStock[i]->use(target);
+	if (inventory[idx])
+		inventory[idx]->use(target);
 }
